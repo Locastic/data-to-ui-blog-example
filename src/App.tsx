@@ -1,12 +1,12 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import BlogPost from './components/blogPost';
 
 function App() {
   return (
     <BlogPost
       title="Post title"
-      excerpt="Excerpt"
+      excerpt="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor, dicta iure at incidunt debitis voluptates sit alias voluptatem inventore, numquam sint nisi aperiam aut voluptate similique, ullam quas placeat magni!"
       image={{
         path: "//picsum.photos/700/600",
         title: "Image title",
@@ -17,3 +17,4 @@ function App() {
   );
 }
 export default App;
+
