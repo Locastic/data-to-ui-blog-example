@@ -25,7 +25,7 @@ export default function BlogPost({ title, excerpt, image, featured, published_at
             <h3>{title}</h3>
             <time>{published_at.toDateString()}</time>
             <p>{excerpt}</p>
-            {tags && tags.map(tag => <a href={tag.path}>{tag.title}</a>)}
+            {tags && tags.map(tag => <a className="tag" href={tag.path}>{tag.title}</a>)}
         </article>
     )
 }
