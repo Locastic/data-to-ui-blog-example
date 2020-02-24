@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './App.scss';
-import BlogPost from './components/blogPost';
+import BlogPostList from './components/blogPostList';
+import {IBlogPost} from './components/blogPost';
 
-
-const posts = [
+const posts: IBlogPost[] = [
   {
     title: "Post title",
     excerpt: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor, dicta iure at incidunt debitis voluptates sit alias voluptatem inventore, numquam sint nisi aperiam aut voluptate similique, ullam quas placeat magni!",
@@ -138,7 +138,7 @@ const posts = [
 ];
 
 function App() {
-  const [featuredOnly, setFeaturedOnly] = useState(false);
+  const [featuredOnlyState, setFeaturedOnlyState] = useState(false);
   return (
     <>
       <label htmlFor="featured_filter">
@@ -146,25 +146,26 @@ function App() {
           id="featured_filter"
           type="checkbox"
           onChange={() =>
-            setFeaturedOnly(!featuredOnly)
+            setFeaturedOnlyState(!featuredOnlyState)
           } />
           Featured only
       </label>
-      <div className="flex-container">
-        {posts
-          .filter(post => featuredOnly ? post.featured : true)
-          .map(({ title, excerpt, image, featured, published_at, tags }) =>
-            <BlogPost
-              title={title}
-              excerpt={excerpt}
-              image={image}
-              published_at={published_at}
-              featured={featured}
-              tags={tags}
-            />
-          )}
-      </div>
+      <BlogPostList posts={posts} featuredOnly={featuredOnlyState} />
     </>
   )
 }
 export default App;
+
+
+// {posts
+//   .filter(post => featuredOnly ? post.featured : true)
+//   .map(({ title, excerpt, image, featured, published_at, tags }) =>
+//     <BlogPost
+//       title={title}
+//       excerpt={excerpt}
+//       image={image}
+//       published_at={published_at}
+//       featured={featured}
+//       tags={tags}
+//     />
+//   )}

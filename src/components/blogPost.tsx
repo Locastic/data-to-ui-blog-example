@@ -1,6 +1,6 @@
 import React from 'react'
 
-interface Props {
+export interface IBlogPost {
     title: string,
     excerpt: string,
     image: {
@@ -18,10 +18,10 @@ interface Props {
     >
 }
 
-export default function BlogPost({ title, excerpt, image, featured, published_at, tags }: Props) {
+export default function BlogPost({ title, excerpt, image, featured, published_at, tags }: IBlogPost) {
     return (
         <article className={(featured) ? 'featured' : ''}>
-            <img src={image.path} alt={image.alt} title={title} />
+            <img src={image.path} alt={image.alt} title={image.title} />
             <h3>{title}</h3>
             <time>{published_at.toDateString()}</time>
             <p>{excerpt}</p>
